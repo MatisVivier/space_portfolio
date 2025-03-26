@@ -1,0 +1,25 @@
+.space-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+  }
+  
+  .sun {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.8));
+    animation: glow 4s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
+    }
+    to {
+      filter: drop-shadow(0 0 60px rgba(255, 215, 0, 1));
+    }
+  }
+  
