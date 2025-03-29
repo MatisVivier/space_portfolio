@@ -3,7 +3,7 @@ import StarryBackground from './components/StarryBackground';
 import Portfolio from './components/Portfolio';
 import OrbitNavbar from './components/OrbitNavbar';
 import Spaceship from "./components/Spaceship";
-import Accueil from "./pages/Accueil";
+import Accueil from "./pages/Moi";
 import Projets from "./pages/Projets";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       )}
 
       <Routes>
-        <Route path="/accueil" element={<Accueil />} />
+        <Route path="/a-propos-de-moi" element={<Accueil />} />
         <Route path="/projets" element={<Projets />} />
         {/* Tu peux ajouter les autres routes ici */}
       </Routes>

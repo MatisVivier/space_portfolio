@@ -21,12 +21,12 @@ export default function OrbitNavbar() {
 
   const planets: Planet[] = [
     {
-      name: "Accueil",
+      name: "À propos de moi",
       image: "/assets/earth.png",
       angle: 0,
       distance: 200,
       size: 70,
-      route: "/accueil",
+      route: "/a-propos-de-moi",
       content: {
         characteristics: "Interface principale du vaisseau. Accès rapide aux systèmes.",
         environment: "Navigation fluide avec étoiles réactives.",
@@ -34,12 +34,12 @@ export default function OrbitNavbar() {
       },
     },
     {
-      name: "À propos",
+      name: "CV",
       image: "/assets/2.png",
       angle: 50,
       distance: 450,
       size: 90,
-      route: "/a-propos",
+      route: "/cv",
       content: {
         characteristics: "Base de données personnelle et historique du pilote.",
         environment: "Infos bio-tech calibrées pour l’analyse.",
@@ -47,12 +47,12 @@ export default function OrbitNavbar() {
       },
     },
     {
-      name: "Projets",
+      name: "Contact",
       image: "/assets/1.png",
       angle: 120,
       distance: 300,
       size: 60,
-      route: "/projets",
+      route: "/contact",
       content: {
         characteristics: "Archives de missions passées et prototypes en cours.",
         environment: "Système modulaire. Code en orbite constante.",
@@ -60,12 +60,12 @@ export default function OrbitNavbar() {
       },
     },
     {
-      name: "Contact",
+      name: "Projets",
       image: "/assets/3.png",
       angle: 220,
       distance: 400,
       size: 80,
-      route: "/contact",
+      route: "/projets",
       content: {
         characteristics: "Canal de communication intergalactique.",
         environment: "Connexion sécurisée via hyper-réseau.",
