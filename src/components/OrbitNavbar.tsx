@@ -16,13 +16,14 @@ type Planet = {
   };
 };
 
+const withBase = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 export default function OrbitNavbar() {
   const navigate = useNavigate();
 
   const planets: Planet[] = [
     {
       name: "À propos de moi",
-      image: "/assets/earth.png",
+      image: withBase("assets/earth.png"),
       angle: 0,
       distance: 200,
       size: 70,
@@ -35,7 +36,7 @@ export default function OrbitNavbar() {
     },
     {
       name: "CV",
-      image: "/assets/2.png",
+      image: withBase("assets/2.png"),
       angle: 50,
       distance: 450,
       size: 90,
@@ -48,7 +49,7 @@ export default function OrbitNavbar() {
     },
     {
       name: "Contact",
-      image: "/assets/1.png",
+      image: withBase("assets/1.png"),
       angle: 120,
       distance: 300,
       size: 60,
@@ -61,7 +62,7 @@ export default function OrbitNavbar() {
     },
     {
       name: "Projets",
-      image: "/assets/3.png",
+      image: withBase("assets/3.png"),
       angle: 220,
       distance: 400,
       size: 80,
@@ -79,7 +80,7 @@ export default function OrbitNavbar() {
   return (
     <>
       <div className="orbit-container">
-        <img src="/assets/soleil.png" className="orbit-sun" alt="Soleil" />
+        <img src={withBase("assets/soleil.png")} className="orbit-sun" alt="Soleil" />
 
         {planets.map((planet) => (
           <div

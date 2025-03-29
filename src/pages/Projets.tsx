@@ -1,5 +1,5 @@
 import StarOverlay from "../components/StarOverlay/StarOverlay";
-import "../styles/Projets.css";
+import "../components/Projets.css";
 
 export default function Projets() {
   // Simule des projets (tu pourras ensuite les charger dynamiquement)
@@ -24,7 +24,7 @@ export default function Projets() {
   ];
 
   return (
-    <div className="planet-accueil">
+    <div className="planet-accueil2">
       <div className="heat-haze" />
       <StarOverlay />
 
