@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 export default function Spaceship() {
   const [direction, setDirection] = useState<"left" | "right">("left");
   const [topOffset, setTopOffset] = useState(20); // en %
+  const withBase = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,7 +23,7 @@ export default function Spaceship() {
       style={{ top: `${topOffset}%` }}
     >
       <img
-        src="/assets/spaceship.png"
+        src={withBase("assets/spaceship.png")}
         alt="Vaisseau spatial"
         className="spaceship"
       />

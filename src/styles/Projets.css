@@ -1,33 +1,23 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
-body {
-  position: relative;
-}
-
 .planet-accueil2 {
   position: relative;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 150vh;
   background: linear-gradient(to bottom, #8a2e0a, #a5801b);
+  background-attachment: fixed; /* 👈 fixe le fond */
+  background-size: cover;
   color: #003e4f;
   font-family: 'Rajdhani', sans-serif;
   padding: 80px 20px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-.planet-content {
+.planet-content2 {
   z-index: 2;
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: #dfdddd;
   border-radius: 16px;
   backdrop-filter: blur(8px);
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
@@ -36,67 +26,123 @@ body {
   gap: 50px;
 }
 
-.planet-content h1 {
+.intro2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+}
+
+.planet-content2 h1 {
   font-size: 32px;
-  margin-bottom: 20px;
+  margin-bottom: -30px;
+  color: #8a3838;
 }
 
-.planet-content p {
-  font-size: 16px;
-  line-height: 1.6;
+.planet-content2 .intro2 p {
+  font-size: 18px;
+  color: #8a3838;
+  margin-bottom: -20px;
 }
 
-@keyframes cloudMove {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(200vw);
-  }
+.planet-content2 p {
+  font-size: 18px;
+  color: #8a3838;
 }
-
-.heat-haze {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03), transparent 70%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: 2;
-  animation: hazeWave 4s infinite ease-in-out;
-  filter: blur(4px) brightness(1.2);
-  opacity: 0.6;
-}
-
-@keyframes hazeWave {
-  0% {
-    transform: scale(1) translateY(0);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.05) translateY(-1%);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 0.6;
-  }
-}
-
 
 .filtres {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+.filtres button.active {
+  background-color: #e17171;
+  border-color: #e17171;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  margin-top: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Compétences utilisées (ligne d’icônes) */
+.competences-utilisees {
+  display: flex;
+  justify-content: left;
+  gap: 8px; /* Réduction de l’espace entre les icônes */
+  margin-top: 10px;
+}
+
+.skill-icon {
+  font-size: 28px; /* Agrandissement */
+  color: #e17171;
+  filter: drop-shadow(0 0 5px #e17171);
+  transition: transform 0.2s ease;
+}
+
+.skill-icon:hover {
+  transform: scale(1.15);
+  color: #e17171;
+}
+
+/* Année en bas de la carte */
+.annee-projet {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #e17171;
+  font-weight: bold;
 }
 
 .filtres button {
   margin: 0 10px;
   padding: 8px 16px;
-  background: transparent;
-  border: 1px solid #00ffff88;
-  color: #00ffff;
+  background: #b88e8e;
+  border: 1px solid #e17171;
+  color: white;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s ease;
@@ -104,47 +150,226 @@ body {
 }
 
 .filtres button:hover {
-  background-color: #00ffff33;
+  background-color: #e17171;
 }
 
 /* Grille responsive */
 .grille-projets {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
 }
 
 /* Carte projet */
 .carte-projet {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #00ffff33;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #e17171;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(179, 115, 90, 0.1);
   backdrop-filter: blur(6px);
   transition: transform 0.3s ease;
+  height: 550px;
 }
 
 .carte-projet:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(179, 115, 90, 0.3);
 }
 
 .projet-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 200px;
+  object-fit:cover;
+  margin-bottom: -20px;
 }
 
 .projet-details {
   padding: 20px;
-  color: #e0f7fa;
+  color: #e17171;
   font-size: 14px;
 }
 
 .projet-details h2 {
   margin-bottom: 10px;
   font-size: 20px;
-  color: #00ffff;
+  color: #e17171;
+}
+
+.competences-textuelles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-container {
+  position: relative;
+}
+
+.annee-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #e17171;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.categories-projet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.categorie-badge {
+    background-color: #e17171;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    backdrop-filter: blur(5px);
+  }
+
+.rocket-fixed {
+  position: fixed;
+  bottom: -10px;
+  left: 0;
+  width: 110px;
+  z-index: 999;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 1s ease-out;
+  animation: rocketIdle 3s infinite ease-in-out;
+}
+
+.rocket-fixed.launching {
+  animation: none;
+  transform: translateY(-150vh) rotate(-10deg);
+}
+
+/* Quand .decolle est actif sur .planet-accueil2 */
+.planet-accueil2.decolle .planet-content2 {
+  animation: descendContent 1.5s ease-in forwards;
+}
+
+.planet-accueil2.decolle .rocket-fixed {
+  animation: rocketLaunch 1.5s ease-in forwards;
+}
+
+/* Animation du contenu qui descend */
+@keyframes descendContent {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Animation de la fusée qui décolle */
+@keyframes rocketLaunch {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150vh) rotate(-15deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .planet-accueil2 {
+    padding: 40px 10px;
+  }
+
+  .planet-content2 {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .intro2 {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .planet-content2 h1 {
+    font-size: 24px;
+  }
+
+  .planet-content2 p {
+    font-size: 16px;
+  }
+
+  .filtres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .filtres button {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .grille-projets {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 5px;
+  }
+
+  .carte-projet {
+    height: auto;
+  }
+
+  .projet-image {
+    height: 180px;
+  }
+
+  .projet-details {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .projet-details h2 {
+    font-size: 18px;
+  }
+
+  .competences-utilisees {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .competences-textuelles {
+    justify-content: center;
+  }
+
+  .categorie-badge {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .rocket-fixed {
+    width: 80px;
+    bottom: 10px;
+  }
 }
 

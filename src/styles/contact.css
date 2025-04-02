@@ -1,0 +1,135 @@
+.planet-contact {
+    position: relative;
+    background: linear-gradient(to bottom, #2c2c54, #4b5f89);
+    min-height: 90vh;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    padding: 100px 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .contact-content {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 40px 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .contact-content h1 {
+    font-size: 32px;
+    color: #00ffff;
+    margin-bottom: 20px;
+  }
+  
+  .contact-content p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #d0faff;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 14px;
+    resize: none;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  .contact-form button {
+    background: linear-gradient(to right, #00ffff, #00b3ff);
+    color: #002a33;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+  }
+  
+  .contact-form button:hover {
+    background: linear-gradient(to right, #00e0ff, #00ffff);
+  }
+  
+  .success {
+    color: #00ffb3;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .contact-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .contact-links a {
+    color: #00ffff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-links a:hover {
+    color: #00d2ff;
+  }
+  
+  .contact-links i {
+    margin-right: 8px;
+  }
+
+  .rocket-fixed {
+    position: fixed;
+    bottom: -10px;
+    left: 0;
+    width: 110px;
+    z-index: 999;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: transform 1s ease-out;
+    animation: rocketIdle 3s infinite ease-in-out;
+  }
+  
+  .rocket-fixed.launching {
+    animation: none;
+    transform: translateY(-150vh) rotate(-10deg);
+  }
+  
+  .planet-contact.decolle .contact-content {
+    animation: descendContent 1.5s ease-in forwards;
+  }
+  
+  @keyframes descendContent {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+  
+  
+  

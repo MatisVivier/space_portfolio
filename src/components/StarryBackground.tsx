@@ -17,7 +17,7 @@ export default function StarryBackground() {
           fullScreen: { enable: true, zIndex: -2 },
           particles: {
             number: {
-              value: 300,
+              value: 800,
               density: {
                 enable: true,
                 value_area: 800,
@@ -25,7 +25,7 @@ export default function StarryBackground() {
             },
             color: { value: "#ffffff" },
             opacity: {
-              value: 0.5, // <- étoiles moins éclatantes
+              value: 0.8, // <- étoiles moins éclatantes
               random: true,
             },
             size: {

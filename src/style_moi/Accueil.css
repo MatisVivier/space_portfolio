@@ -1,24 +1,12 @@
-/* --- PLANET BASE --- */
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  height: 100%;
-  scroll-behavior: smooth;
-}
 
 body {
-  position: relative;
+  overflow-y: auto !important;
 }
-
-
 .planet-accueil {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   background: linear-gradient(to bottom, #1e5379, #84c6e2);
-  overflow: hidden; /* cache scroll vertical ET horizontal */
   color: #003e4f;
   font-family: 'Rajdhani', sans-serif;
   padding: 80px 20px;
@@ -30,7 +18,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   backdrop-filter: blur(8px);
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
@@ -58,6 +46,13 @@ body {
   border: 3px solid #00ffff50;
   box-shadow: 0 0 15px #00ffff88;
 }
+.intro h1 {
+  color: #00ffff;
+}
+
+.intro p {
+  color: white;
+}
 
 /* --- ORBIT SECTION : Timeline + Skills --- */
 
@@ -66,7 +61,7 @@ body {
   justify-content: center;
   gap: 50px;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 20px;
   margin-bottom: 2%;
 }
 
@@ -82,6 +77,7 @@ body {
   margin-bottom: 50px;
   color: #00ffff;
 }
+
 
 .orbit-line {
   position: relative;
@@ -128,18 +124,33 @@ body {
 /* Timeline planet */
 .timeline-planet {
   position: absolute;
-  bottom: -60px;
-  left: 50%;
+  bottom: -50px;
+  left: 40%; /* centré horizontalement */
   transform: translateX(-50%);
   width: 90px;
   height: 80px;
-  animation: rotatePlanet 12s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Rotation de la planète elle-même */
 .planet-img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
+  animation: rotatePlanet 12s linear infinite;
+  transform-origin: center center; /* centre de rotation */
+}
+
+/* Animation de rotation */
+@keyframes rotatePlanet {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Timeline content styles */
@@ -166,7 +177,7 @@ body {
 }
 
 .event-content p {
-  font-size: 14px;
+  font-size: 15px;
   color: #ffffff;
   line-height: 1.5;
 }
@@ -254,10 +265,7 @@ body {
   100% { transform: translateX(150vw); } /* ou 100vw si tu veux limiter davantage */
 }
 
-@keyframes rotatePlanet {
-  0% { transform: translateX(-50%) rotate(0deg); }
-  100% { transform: translateX(-50%) rotate(360deg); }
-}
+
 
 /* --- CV BUTTON --- */
 
@@ -311,3 +319,148 @@ body {
     transform: none;
   }
 }
+
+.page-enter {
+  animation: fadeInSlide 1s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeInSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rocket-fixed {
+  position: fixed;
+  bottom: -10px;
+  left: 0;
+  width: 110px;
+  z-index: 999;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 1s ease-out;
+  animation: rocketIdle 3s infinite ease-in-out;
+}
+
+.rocket-fixed.launching {
+  animation: none;
+  transform: translateY(-150vh) rotate(-10deg);
+}
+
+.planet-accueil.decolle .planet-content {
+  animation: descendContent 1.5s ease-in forwards;
+}
+
+.planet-accueil.decolle .cloud {
+  animation: descendContent 1.5s ease-in backwards;
+}
+
+.planet-accueil.decolle .rocket-fixed{
+  animation: rocketLaunch 1.5s ease-in forwards;
+}
+
+
+@media (max-width: 768px) {
+  .planet-accueil {
+    padding: 40px 10px;
+  }
+
+  .planet-content {
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .photo-profil {
+    width: 120px;
+    height: 120px;
+  }
+
+  .intro h1 {
+    font-size: 22px;
+  }
+
+  .intro p {
+    font-size: 15px;
+  }
+
+  .orbit-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .timeline-orbit,
+  .skills-passions {
+    flex: 1 1 50%;
+    max-width: 100%;
+    min-width: unset;
+  }
+
+  .timeline-event {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin-bottom: -120px;
+  }
+  
+  .timeline-event .event-content {
+    position: relative;
+    max-width: 500px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid #00ffff88;
+    border-radius: 12px;
+    padding: 16px;
+    backdrop-filter: blur(6px);
+    color: #fff;
+    box-shadow: 0 0 10px #00ffff44;
+    margin-bottom: 0px;
+    text-align: left;
+  }
+  
+  .skills-section h2 {
+    font-size: 16px;
+    color: #003e4f;
+  }
+
+  .skills-section ul li {
+    font-size: 14px;
+    color: #003e4f;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .skills-grid img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .planet-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .rocket-fixed {
+    width: 80px;
+    bottom: 10px;
+  }
+
+  .solar-caption {
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .cloud {
+    display: none; /* Optionnel : masque les nuages sur mobile */
+  }
+}
+
